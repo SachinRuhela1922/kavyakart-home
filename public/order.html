@@ -157,7 +157,7 @@
     let orders = [];
 
     async function fetchOrders() {
-      const res = await fetch(`http://localhost:3000/api/user-orders?uid=${uid}`);
+      const res = await fetch(`/api/user-orders?uid=${uid}`);
       const data = await res.json();
       orders = data.orders || [];
 
