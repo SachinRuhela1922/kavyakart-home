@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KavyaKart - Premium Neckbands & Earbuds</title>
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+
+  <script>
+
+    
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2874F0',
+            secondary: '#F1F3F6'
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '4px',
+            DEFAULT: '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '20px',
+            '2xl': '24px',
+            '3xl': '32px',
+            'full': '9999px',
+            'button': '8px'
+          }
+        }
+      }
+    }
+
+    
+  </script>
+  <style>
+    :where([class^="ri-"])::before {
+      content: "\f3c2";
+    }
+
+    .hero-bg {
+      background-image: url('./image/img9.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+     @keyframes scrollInfinite {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .scroll-marquee {
+    animation: scrollInfinite 20s linear infinite;
+  }
+  </style>
+</head>
+
+<body class="bg-white">
+  <header class="fixed top-0 left-0 right-0 bg-primary z-50 h-20 will-change-transform"
+    style="backface-visibility: hidden; transform-style: preserve-3d;">
+
+    <div class="flex items-center justify-between px-4 h-full">
+
+      <!-- Logo with Text -->
+      <!-- Logo with Text -->
+<div class="flex items-center space-x-2 w-auto  cursor-pointer" onclick="window.location.href='index.html'">
+  <img class="w-10 h-10 object-contain" src="./image/logo.png" alt="KavyaKart Logo">
+  <h6 class="text-white text-xs sm:text-sm font-['Dancing_Script'] leading-tight">KavyaKart</h6>
+</div>
+
+
+      <!-- Search Box -->
+      <div class="hidden md:block flex-1 max-w-lg mx-4">
+
+        <div class="relative">
+          <input type="text" placeholder="Search..."
+            class="w-full px-4 py-2 pr-12 rounded text-sm border-none outline-none" id="searchInput">
+          <button class="absolute right-0 top-0 h-full px-4 bg-orange-400 rounded-r hover:bg-orange-500">
+            <i class="ri-search-line text-white"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-6 text-white">
+        <button id="accountBtn" class="flex items-center space-x-1 hover:text-gray-200" onclick="window.location.href='account.html'">
+          <i class="ri-user-line"></i>
+          <span class="text-sm">Account</span>
+        </button>
+        <button id="accountBtn" class="flex items-center space-x-1 hover:text-gray-200" onclick="window.location.href='order.html'">
+          <i class="ri-user-line"></i>
+          <span class="text-sm">Order</span>
+        </button>
+
+        <button class="flex items-center space-x-1 hover:text-gray-200 relative" onclick="window.location.href='cart.html'">
+          <i class="ri-shopping-cart-line"></i>
+          <span class="text-sm">Cart</span>
+          <span
+            class="absolute -top-2 -right-2 bg-orange-500 text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Icon -->
+      <div class="md:hidden">
+        <button id="menuToggle" class="text-white text-2xl">
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu"
+      class="md:hidden hidden bg-white text-black shadow-lg p-4 absolute top-16 right-4 w-48 rounded z-50">
+      <a href="account.html" class="block py-2 hover:text-primary border-b">Account</a>
+      <a href="cart.html" class="block py-2 hover:text-primary border-b">Cart</a>
+      <a href="order.html" class="block py-2 hover:text-primary">Orders</a>
+    </div>
+
+
+
+  </header>
+
+  <div class="pt-20">
+  <div class="bg-white border-b border-gray-200 sticky top-16 z-40 overflow-hidden">
+    <div class="relative w-full h-full px-4 py-3">
+      <!-- Wrap in a double-content container -->
+      <div class="flex space-x-6 overflow-hidden w-max scroll-marquee">
+
+        <!-- Duplicated items for seamless loop -->
+        <div class="flex space-x-6">
+          <button class="whitespace-nowrap px-4 py-2 bg-primary text-white rounded-full text-sm !rounded-button">Neckbands</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Wireless Earbuds</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Sports Earphones</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Sports Earphones</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Sports Earphones</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Sports Earphones</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Sports Earphones</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Gaming Headsets</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Accessories</button>
+        </div>
+
+        <!-- Duplicate again -->
+        <div class="flex space-x-6 ml-12">
+          <button class="whitespace-nowrap px-4 py-2 bg-primary text-white rounded-full text-sm !rounded-button">Neckbands</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Wireless Earbuds</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Wireless Earbuds</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Wireless Earbuds</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Wireless Earbuds</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Wireless Earbuds</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Sports Earphones</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Gaming Headsets</button>
+          <button class="whitespace-nowrap px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 transition-colors !rounded-button">Accessories</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- 🔍 Responsive Filter Section -->
+    <div class="relative px-4 mt-4 mb-4">
+      <!-- Toggle Button for Mobile -->
+      <button id="filterToggleBtn" class="md:hidden mb-2 px-4 py-2 bg-primary text-white rounded text-sm z-49 relative">
+        🔍 Show Filters
+      </button>
+
+      <!-- Filter Box (mobile = absolute) -->
+      <div id="filterSection"
+        class="hidden absolute top-12 left-4 right-4 z-40 bg-white border border-gray-300 rounded p-4 shadow-md md:static md:flex md:flex-wrap md:items-center md:gap-4 md:bg-transparent md:border-none md:shadow-none md:p-0">
+
+        <!-- Category Filter -->
+        <select id="filterCategory" class="w-full md:w-auto px-4 py-2 border rounded text-sm mb-2 md:mb-0">
+          <option value="">All Categories</option>
+          <option value="Neckbands">Neckbands</option>
+          <option value="Wireless Earbuds">Wireless Earbuds</option>
+          <option value="Sports Earphones">Sports Earphones</option>
+          <option value="Gaming Headsets">Gaming Headsets</option>
+          <option value="Accessories">Accessories</option>
+        </select>
+
+        <!-- Brand Filter -->
+        <select id="filterBrand" class="w-full md:w-auto px-4 py-2 border rounded text-sm mb-2 md:mb-0">
+          <option value="">All Brands</option>
+          <option value="boAt">boAt</option>
+          <option value="Noise">Noise</option>
+          <option value="Boult">Boult</option>
+          <option value="JBL">JBL</option>
+          <option value="Realme">Realme</option>
+        </select>
+
+        <!-- Price Filter -->
+        <select id="filterPrice" class="w-full md:w-auto px-4 py-2 border rounded text-sm mb-2 md:mb-0">
+          <option value="">All Prices</option>
+          <option value="0-999">Below ₹999</option>
+          <option value="1000-1999">₹1000 - ₹1999</option>
+          <option value="2000-5000">₹2000 - ₹5000</option>
+          <option value="5000+">Above ₹5000</option>
+        </select>
+
+        <!-- Reset Button -->
+        <button id="resetFilterBtn"
+          class="w-full md:w-auto px-4 py-2 bg-gray-200 rounded text-sm hover:bg-gray-300">Reset Filters</button>
+      </div>
+    </div>
+
+
+
+    <section class="hero-bg h-96 flex items-center justify-start relative">
+      <div class="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent"></div>
+      <div class="relative z-10 px-8 max-w-2xl">
+        <h1 class="text-5xl font-bold text-white mb-4">Premium Audio Experience</h1>
+        <p class="text-xl text-white/90 mb-8">Discover our latest collection of wireless neckbands and earbuds with
+          superior sound quality and comfort</p>
+        <div class="flex space-x-4">
+          <button
+            class="px-8 py-3 bg-primary text-white rounded hover:bg-blue-700 transition-colors font-medium !rounded-button whitespace-nowrap">Shop
+            Now</button>
+          <button
+            class="px-8 py-3 bg-white/20 text-white rounded border border-white/30 hover:bg-white/30 transition-colors font-medium !rounded-button whitespace-nowrap">Learn
+            More</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-12 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-2xl font-bold text-gray-900">Best Sellers</h2>
+          <button class="text-primary hover:text-blue-700 font-medium">View All</button>
+        </div>
+
+        <!-- BEST SELLERS -->
+        <div id="bestSellers" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      </div>
+    </section>
+
+    <section class="py-12 px-4 bg-secondary">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-2xl font-bold text-gray-900">New Arrivals</h2>
+          <button class="text-primary hover:text-blue-700 font-medium">View All</button>
+        </div>
+
+        <div id="newArrivals" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
+      </div>
+    </section>
+
+    <section class="py-16 px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Choose KavyaKart?</h2>
+        <p class="text-lg text-gray-600 mb-12">Experience the difference with our premium audio solutions</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="ri-sound-module-line text-2xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Superior Sound Quality</h3>
+            <p class="text-gray-600">Experience crystal-clear audio with our advanced acoustic technology and premium
+              drivers.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="ri-battery-charge-line text-2xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Long Battery Life</h3>
+            <p class="text-gray-600">Enjoy up to 30 hours of continuous playback with our efficient battery management
+              system.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="ri-customer-service-2-line text-2xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">24/7 Support</h3>
+            <p class="text-gray-600">Get expert assistance anytime with our dedicated customer support team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="bg-gray-900 text-white py-12 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="text-white font-['Pacifico'] text-xl mb-4"><img class="w-16" src="./image/logo.png" alt=""></div>
+          <p class="text-gray-400 mb-4">Premium audio solutions for every lifestyle. Experience the future of sound with
+            our innovative products.</p>
+          <div class="flex space-x-4">
+            <div
+              class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 cursor-pointer">
+              <i class="ri-facebook-fill"></i>
+            </div>
+            <div
+              class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 cursor-pointer">
+              <i class="ri-twitter-fill"></i>
+            </div>
+            <div
+              class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 cursor-pointer">
+              <i class="ri-instagram-fill"></i>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold mb-4">Products</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-white transition-colors">Neckbands</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Wireless Earbuds</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Sports Earphones</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Gaming Headsets</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold mb-4">Support</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Warranty</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Returns</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold mb-4">Newsletter</h3>
+          <p class="text-gray-400 mb-4">Subscribe to get updates on new products and exclusive offers.</p>
+          <div class="flex">
+            <input type="email" placeholder="Enter your email"
+              class="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-l text-sm outline-none focus:border-primary">
+            <button
+              class="px-4 py-2 bg-primary text-white rounded-r hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap">Subscribe</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 KavyaKart. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script id="navigation-interactions">
+    document.addEventListener('DOMContentLoaded', function () {
+      const searchInput = document.querySelector('input[type="text"]');
+
+      // Add focus/blur ring to search box
+      searchInput.addEventListener('focus', function () {
+        this.parentElement.classList.add('ring-2', 'ring-blue-500');
+      });
+
+      searchInput.addEventListener('blur', function () {
+        this.parentElement.classList.remove('ring-2', 'ring-blue-500');
+      });
+
+      // ✅ Fix: Limit category button behavior to its container only
+      const categoryContainer = document.querySelector('.overflow-x-auto');
+      const categoryButtons = categoryContainer.querySelectorAll('button');
+
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          categoryButtons.forEach(btn => {
+            btn.classList.remove('bg-primary', 'text-white');
+            btn.classList.add('bg-gray-100', 'text-gray-700');
+          });
+
+          this.classList.remove('bg-gray-100', 'text-gray-700');
+          this.classList.add('bg-primary', 'text-white');
+        });
+      });
+    });
+
+  </script>
+  <script id="product-interactions">
+    document.addEventListener('DOMContentLoaded', function () {
+      const productCards = document.querySelectorAll('.bg-white.rounded-lg');
+      const cartButtons = document.querySelectorAll('button:contains("Add to Cart"), button:contains("Pre-order Now")');
+
+      productCards.forEach(card => {
+        card.addEventListener('mouseenter', function () {
+          this.style.transform = 'translateY(-4px)';
+          this.style.transition = 'transform 0.3s ease';
+        });
+
+        card.addEventListener('mouseleave', function () {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+    });
+
+
+    const menuBtn = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+  <script>
+    const bestContainer = document.getElementById("bestSellers");
+    const newContainer = document.getElementById("newArrivals");
+
+    const renderStars = (rating) => {
+      let stars = '';
+      for (let i = 1; i <= 5; i++) {
+        if (i <= Math.floor(rating)) stars += '<i class="ri-star-fill text-sm"></i>';
+        else if (rating % 1 >= 0.5 && i === Math.ceil(rating)) stars += '<i class="ri-star-half-fill text-sm"></i>';
+        else stars += '<i class="ri-star-line text-sm"></i>';
+      }
+      return stars;
+    };
+
+    const createCard = (product, isNew = false) => {
+      const encodedProduct = encodeURIComponent(JSON.stringify(product));
+      return `
+      <div onclick='viewProduct("${encodedProduct}")' class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100 relative cursor-pointer">
+        ${isNew ? `<div class="absolute top-3 left-3 bg-green-500 text-white px-2 py-1 rounded text-xs font-medium z-10">${product.label}</div>` : ''}
+        <div class="aspect-square bg-gray-50 rounded-t-lg overflow-hidden">
+          <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover object-top">
+        </div>
+        <div class="p-4">
+          <h3 class="font-medium text-gray-900 mb-2 line-clamp-2">${product.title}</h3>
+          <div class="flex items-center space-x-2 mb-2">
+            <div class="flex text-yellow-400">
+              ${renderStars(product.rating)}
+            </div>
+            <span class="text-sm text-gray-600">(${product.reviews})</span>
+          </div>
+          <div class="flex items-center space-x-2 mb-3">
+            <span class="text-lg font-bold text-gray-900">₹ ${product.price}</span>
+            ${product.original ? `<span class="text-sm text-gray-500 line-through">₹ ${product.original}</span>` : ''}
+            ${product.discount ? `<span class="text-sm text-green-600 font-medium">${product.discount}</span>` : ''}
+          </div>
+          <button class="w-full py-2 bg-primary text-white rounded hover:bg-blue-700 transition-colors font-medium">
+            Add to Cart
+          </button>
+        </div>
+      </div>`;
+    };
+
+    async function fetchAndRenderProducts() {
+      try {
+        const res = await fetch('/api/products'); // change to your live API URL if needed
+        const data = await res.json();
+
+        // Get filters
+        const category = document.getElementById("filterCategory").value;
+        const brand = document.getElementById("filterBrand").value;
+        const price = document.getElementById("filterPrice").value;
+        const searchTerm = document.getElementById("searchInput")?.value.trim().toLowerCase();
+
+
+        let filtered = [...data];
+
+        // Apply category filter
+        if (category) {
+          filtered = filtered.filter(p => p.category?.toLowerCase() === category.toLowerCase());
+        }
+
+        // Apply brand filter
+        if (brand) {
+          filtered = filtered.filter(p => p.brand?.toLowerCase() === brand.toLowerCase());
+        }
+
+        if (searchTerm) {
+          filtered = filtered.filter(p =>
+            p.title?.toLowerCase().includes(searchTerm) ||
+            p.brand?.toLowerCase().includes(searchTerm) ||
+            p.category?.toLowerCase().includes(searchTerm)
+          );
+        }
+
+        // Apply price filter
+        if (price) {
+          if (price === "0-999") filtered = filtered.filter(p => p.price <= 99);
+          else if (price === "1000-1999") filtered = filtered.filter(p => p.price >= 1000 && p.price <= 1999);
+          else if (price === "2000-5000") filtered = filtered.filter(p => p.price >= 2000 && p.price <= 5000);
+          else if (price === "5000+") filtered = filtered.filter(p => p.price > 5000);
+        }
+
+        bestContainer.innerHTML = '';
+        newContainer.innerHTML = '';
+
+        filtered.forEach(product => {
+          const isNew = product.label === 'NEW';
+          const card = createCard(product, isNew);
+          if (product.type === 'bestseller') bestContainer.innerHTML += card;
+          else newContainer.innerHTML += card;
+        });
+
+      } catch (err) {
+        console.error("❌ Failed to fetch products:", err);
+      }
+    }
+
+
+    function viewProduct(encodedProduct) {
+      const product = JSON.parse(decodeURIComponent(encodedProduct));
+      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      window.location.href = "product.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", fetchAndRenderProducts);
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+      fetchAndRenderProducts();
+
+      const searchInput = document.getElementById("searchInput");
+      if (searchInput) {
+        searchInput.addEventListener("input", fetchAndRenderProducts); // optional: for real-time
+        searchInput.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") fetchAndRenderProducts();
+        });
+      }
+
+
+      // Filter change listeners
+      document.getElementById("filterCategory").addEventListener("change", fetchAndRenderProducts);
+      document.getElementById("filterBrand").addEventListener("change", fetchAndRenderProducts);
+      document.getElementById("filterPrice").addEventListener("change", fetchAndRenderProducts);
+      document.getElementById("resetFilterBtn").addEventListener("click", () => {
+        document.getElementById("filterCategory").value = "";
+        document.getElementById("filterBrand").value = "";
+        document.getElementById("filterPrice").value = "";
+        fetchAndRenderProducts();
+      });
+
+      const filterToggleBtn = document.getElementById("filterToggleBtn");
+      const filterSection = document.getElementById("filterSection");
+
+      filterToggleBtn.addEventListener("click", () => {
+        filterSection.classList.toggle("hidden");
+        filterToggleBtn.innerText = filterSection.classList.contains("hidden")
+          ? "🔍 Show Filters"
+          : "❌ Hide Filters";
+      });
+
+    });
+
+  </script>
+
+
+
+</body>
+
+</html>

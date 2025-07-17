@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Detail</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" />
+  <style>
+    ::selection {
+      background-color: #2874F0;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<header class="fixed top-0 left-0 bg-blue-500 right-0  bg-primary z-50 h-20 will-change-transform"
+    style="backface-visibility: hidden; transform-style: preserve-3d;">
+
+    <div class="flex items-center justify-between px-4 h-full">
+
+      <!-- Logo with Text -->
+      <!-- Logo with Text -->
+      <div class="flex items-center space-x-2 w-auto cursor-pointer" onclick="window.location.href='index.html'">
+  <img class="w-10 h-10 object-contain" src="./image/logo.png" alt="KavyaKart Logo">
+  <h6 class="text-white text-xs sm:text-sm font-['Dancing_Script'] leading-tight">KavyaKart</h6>
+</div>
+
+
+
+
+      <!-- Search Box -->
+      <div class="hidden md:block flex-1 max-w-lg mx-4">
+
+        <div class="relative">
+          <input type="text" placeholder="Search..."
+            class="w-full px-4 py-2 pr-12 rounded text-sm border-none outline-none" id="searchInput">
+          <button class="absolute right-0 top-0 h-full px-4 bg-orange-400 rounded-r hover:bg-orange-500">
+            <i class="ri-search-line text-white"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-6 text-white">
+        <button id="accountBtn" class="flex items-center space-x-1 hover:text-gray-200" onclick="window.location.href='account.html'">
+          <i class="ri-user-line"></i>
+          <span class="text-sm">Account</span>
+        </button>
+        <button id="accountBtn" class="flex items-center space-x-1 hover:text-gray-200" onclick="window.location.href='order.html'">
+          <i class="ri-user-line"></i>
+          <span class="text-sm">Order</span>
+        </button>
+
+        <button class="flex items-center space-x-1 hover:text-gray-200 relative" onclick="window.location.href='cart.html'">
+          <i class="ri-shopping-cart-line"></i>
+          <span class="text-sm">Cart</span>
+          <span
+            class="absolute -top-2 -right-2 bg-orange-500 text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Icon -->
+      <div class="md:hidden">
+        <button id="menuToggle" class="text-white text-2xl">
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu"
+      class="md:hidden hidden bg-white text-black shadow-lg p-4 absolute top-16 right-4 w-48 rounded z-50">
+      <a href="account.html" class="block py-2 hover:text-primary border-b">Account</a>
+      <a href="cart.html" class="block py-2 hover:text-primary border-b">Cart</a>
+      <a href="order.html" class="block py-2 hover:text-primary">Orders</a>
+    </div>
+
+
+
+  </header>
+  <div class="w-full py-8 px-4 lg:px-12" id="productDetail">
+    <!-- Product details injected here -->
+
+  </div>
+  
+
+  <footer class="bg-gray-900 text-white py-12 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="text-white font-['Pacifico'] text-xl mb-4"><img class="w-16" src="./image/logo.png" alt=""></div>
+          <p class="text-gray-400 mb-4">Premium audio solutions for every lifestyle. Experience the future of sound with
+            our innovative products.</p>
+          <div class="flex space-x-4">
+            <div
+              class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 cursor-pointer">
+              <i class="ri-facebook-fill"></i>
+            </div>
+            <div
+              class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 cursor-pointer">
+              <i class="ri-twitter-fill"></i>
+            </div>
+            <div
+              class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 cursor-pointer">
+              <i class="ri-instagram-fill"></i>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold mb-4">Products</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-white transition-colors">Neckbands</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Wireless Earbuds</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Sports Earphones</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Gaming Headsets</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold mb-4">Support</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Warranty</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Returns</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-semibold mb-4">Newsletter</h3>
+          <p class="text-gray-400 mb-4">Subscribe to get updates on new products and exclusive offers.</p>
+          <div class="flex">
+            <input type="email" placeholder="Enter your email"
+              class="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-l text-sm outline-none focus:border-primary">
+            <button
+              class="px-4 py-2 bg-primary text-white rounded-r hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap">Subscribe</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 KavyaKart. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+
+    const menuBtn = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+    if (!product) {
+      document.getElementById('productDetail').innerHTML = "<p class='text-center text-xl text-red-500'>No product found.</p>";
+    } else {
+      document.getElementById('productDetail').innerHTML = `
+        <nav class="text-sm text-gray-500 mb-6 max-w-screen-xl mx-auto">
+          <a href="index.html" class="hover:underline text-primary">Home</a> / 
+          <a href="#" class="hover:underline text-primary">Audio Devices</a> / 
+          <span class="text-gray-600">${product.title}</span>
+        </nav>
+
+        <div class="bg-white rounded-lg shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 lg:p-12 max-w-screen-xl mx-auto w-full">
+          
+          <!-- Product Image -->
+          <div class="bg-gray-50 rounded-md flex items-center justify-center">
+            <img src="${product.image}" alt="${product.title}" class="w-full object-contain rounded" />
+          </div>
+
+          <!-- Product Details -->
+          <div class="space-y-4 w-full">
+            <h1 class="text-3xl lg:text-4xl font-bold leading-snug">${product.title}</h1>
+
+            <div class="flex items-center space-x-3">
+              <div class="flex text-yellow-400 text-lg">
+                ${[...Array(5)].map((_, i) => {
+                  if (i < Math.floor(product.rating)) return '<i class="ri-star-fill"></i>';
+                  else if (product.rating % 1 >= 0.5 && i === Math.floor(product.rating)) return '<i class="ri-star-half-fill"></i>';
+                  else return '<i class="ri-star-line"></i>';
+                }).join('')}
+              </div>
+              <span class="text-sm text-gray-600">${product.reviews} reviews</span>
+            </div>
+
+            <div class="pt-2">
+              <div class="text-4xl font-extrabold text-gray-900">$${product.price}
+                ${product.original ? `<span class="ml-4 text-lg text-gray-500 line-through">$${product.original}</span>` : ''}
+              </div>
+              ${product.discount ? `<div class="text-green-600 text-sm font-medium mt-1">${product.discount}</div>` : ''}
+            </div>
+            <div class="flex flex-col lg:flex-row gap-4 mt-6 w-full">
+              <button class="flex-1 bg-primary bg-blue-700 text-white py-3 px-6 rounded hover:bg-blue-300 transition text-center">Add to Cart</button>
+              <button class="flex-1 bg-primary bg-blue-700 text-white py-3 px-6 rounded hover:bg-blue-300 transition text-center">Buy Now</button>
+
+              
+            </div>
+
+            <p class="text-gray-700 text-base leading-relaxed mt-4">
+              Elevate your audio experience with premium sound clarity, extended battery life, and a comfortable fit — built for music lovers and professionals alike.
+            </p>
+
+            <ul class="list-disc pl-6 text-gray-700 text-sm space-y-1 mt-4">
+              <li>Bluetooth 5.3 | Noise Isolation</li>
+              <li>30+ Hours of Battery Life</li>
+              <li>IPX5 Water & Sweat Resistant</li>
+              <li>Hi-Fi Sound with Deep Bass</li>
+              <li>Quick Charge (10min = 4hr play)</li>
+            </ul>
+
+            <div class="flex items-center space-x-4 mt-6">
+              <label class="text-sm font-medium">Qty:</label>
+              <select class="border rounded px-3 py-1 text-sm focus:outline-primary">
+                <option>1</option><option>2</option><option>3</option>
+              </select>
+            </div>
+
+            
+
+            <div class="text-sm text-gray-600 mt-6 space-y-2">
+              <div class="flex items-center gap-2"><i class="ri-truck-line text-lg text-primary"></i> Free Delivery in 3-5 Days</div>
+              <div class="flex items-center gap-2"><i class="ri-refresh-line text-lg text-primary"></i> 7-Day Easy Replacement</div>
+              <div class="flex items-center gap-2"><i class="ri-shield-check-line text-lg text-primary"></i> 1-Year Warranty</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+     document.addEventListener("DOMContentLoaded", () => {
+    const buyNowBtn = document.querySelectorAll("button.bg-primary")[1]; // 2nd button = Buy Now
+    const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+    buyNowBtn.addEventListener("click", () => {
+      localStorage.setItem("buyNowProduct", JSON.stringify(product));
+      window.location.href = "cart-detail.html";
+    });
+  });
+  </script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const uid = localStorage.getItem("uid");
+  const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+  const addToCartBtn = document.querySelector("button.bg-primary");
+
+  addToCartBtn.addEventListener("click", async () => {
+    const quantity = parseInt(document.querySelector("select").value);
+
+    const payload = {
+      uid,
+      product: {
+        ...product,
+        quantity
+      }
+    };
+
+    const res = await fetch("http://localhost:3000/api/add-to-cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+  addToCartBtn.textContent = "Go to Cart";
+  addToCartBtn.classList.add("bg-green-600", "hover:bg-green-700");
+  addToCartBtn.onclick = () => window.location.href = "cart.html";
+} else {
+  addToCartBtn.textContent = "Try Again";
+  addToCartBtn.classList.add("bg-red-600", "hover:bg-red-700");
+}
+
+  });
+});
+
+</script>
+
+
+</body>
+</html>

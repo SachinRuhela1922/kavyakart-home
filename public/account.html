@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your Account</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    
+    <header
+      class="fixed top-0 left-0 bg-blue-500 right-0 bg-primary z-50 h-20 will-change-transform"
+      style="backface-visibility: hidden; transform-style: preserve-3d"
+    >
+      <div class="flex items-center justify-between px-4 h-full">
+        <!-- Logo with Text -->
+        <!-- Logo with Text -->
+        <div class="flex items-center space-x-2 w-auto  cursor-pointer" onclick="window.location.href='index.html'">
+  <img class="w-10 h-10 object-contain" src="./image/logo.png" alt="KavyaKart Logo">
+  <h6 class="text-white text-xs sm:text-sm font-['Dancing_Script'] leading-tight">KavyaKart</h6>
+</div>
+
+        <!-- Search Box -->
+        <div class="hidden md:block flex-1 max-w-lg mx-4">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search..."
+              class="w-full px-4 py-2 pr-12 rounded text-sm border-none outline-none"
+              id="searchInput"
+            />
+            <button
+              class="absolute right-0 top-0 h-full px-4 bg-orange-400 rounded-r hover:bg-orange-500"
+            >
+              <i class="ri-search-line text-white"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-6 text-white">
+          <button
+            id="accountBtn"
+            class="flex items-center space-x-1 hover:text-gray-200"
+            onclick="window.location.href='account.html'"
+          >
+            <i class="ri-user-line"></i>
+            <span class="text-sm">Account</span>
+          </button>
+          <button
+            id="accountBtn"
+            class="flex items-center space-x-1 hover:text-gray-200"
+            onclick="window.location.href='order.html'"
+          >
+            <i class="ri-user-line"></i>
+            <span class="text-sm">Order</span>
+          </button>
+
+          <button
+            class="flex items-center space-x-1 hover:text-gray-200 relative"
+            onclick="window.location.href='cart.html'"
+          >
+            <i class="ri-shopping-cart-line"></i>
+            <span class="text-sm">Cart</span>
+            <span
+              class="absolute -top-2 -right-2 bg-orange-500 text-xs rounded-full w-5 h-5 flex items-center justify-center"
+              >3</span
+            >
+          </button>
+        </div>
+
+        <!-- Mobile Menu Icon -->
+        <div class="md:hidden">
+          <button id="menuToggle" class="text-white text-2xl">
+            <i class="ri-menu-line"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobileMenu"
+        class="md:hidden hidden bg-white text-black shadow-lg p-4 absolute top-16 right-4 w-48 rounded z-50"
+      >
+        <a href="account.html" class="block py-2 hover:text-primary border-b">Account</a>
+        <a href="cart.html" class="block py-2 hover:text-primary border-b">Cart</a>
+        <a href="order.html" class="block py-2 hover:text-primary">Orders</a>
+      </div>
+    </header>
+
+    <div class="max-w-3xl mx-auto mt-24 space-y-6">
+      <!-- Header -->
+      <h1 class="text-3xl font-bold text-center mb-4">👤 My Account</h1>
+
+      <!-- User Info Card -->
+      <div class="bg-white rounded-lg shadow p-6 space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <p class="text-sm text-gray-500">Name</p>
+            <p class="font-semibold text-lg" id="name">Loading...</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-500">Email</p>
+            <p class="font-semibold text-lg" id="email">Loading...</p>
+          </div>
+          <div>
+            <p class="text-sm text-gray-500">Phone</p>
+            <p class="font-semibold text-lg" id="phone">Loading...</p>
+          </div>
+        </div>
+
+        <hr class="my-2" />
+
+        <!-- Address Section -->
+        <div>
+          <p class="text-sm text-gray-500 mb-1">Address</p>
+          <div class="bg-gray-50 p-4 rounded-lg text-sm space-y-1 border">
+            <p id="street" class="text-gray-800"></p>
+            <p>
+              <span id="city"></span>, <span id="state"></span> -
+              <span id="postalCode"></span>
+            </p>
+            <p id="country"></p>
+          </div>
+          <button
+            onclick="openAddressForm()"
+            class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-all"
+          >
+            ➕ Add / Edit Address
+          </button>
+          <button onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden Address Form -->
+    <div
+      id="addressForm"
+      class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center hidden z-50"
+    >
+      <div class="bg-white p-6 rounded shadow-lg max-w-md w-full space-y-4">
+        <h2 class="text-xl font-semibold">Add Your Address</h2>
+
+        <div class="grid grid-cols-1 gap-3 text-sm">
+          <input
+            class="w-full border px-3 py-2 rounded"
+            id="nameInput"
+            placeholder="Full Name"
+          />
+          <input
+            class="w-full border px-3 py-2 rounded"
+            id="phoneInput"
+            placeholder="Phone Number"
+          />
+          <input
+            class="w-full border px-3 py-2 rounded"
+            id="streetInput"
+            placeholder="Street / House No."
+          />
+          <input
+            class="w-full border px-3 py-2 rounded"
+            id="cityInput"
+            placeholder="City"
+          />
+          <input
+            class="w-full border px-3 py-2 rounded"
+            id="stateInput"
+            placeholder="State"
+          />
+          <input
+            class="w-full border px-3 py-2 rounded"
+            id="postalCodeInput"
+            placeholder="Postal Code"
+          />
+          <input
+            class="w-full border px-3 py-2 rounded"
+            id="countryInput"
+            placeholder="Country"
+          />
+        </div>
+
+        <div class="flex justify-end gap-4 pt-2">
+          <button
+            onclick="saveAddress()"
+            class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+          >
+            Save
+          </button>
+          <button
+            onclick="closeAddressForm()"
+            class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-12 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="text-white font-['Pacifico'] text-xl mb-4">
+              <img class="w-16" src="./image/logo.png" alt="" />
+            </div>
+            <p class="text-gray-400 mb-4">
+              Premium audio solutions for every lifestyle. Experience the future
+              of sound with our innovative products.
+            </p>
+            <div class="flex space-x-4">
+              <div
+                class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 cursor-pointer"
+              >
+                <i class="ri-facebook-fill"></i>
+              </div>
+              <div
+                class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 cursor-pointer"
+              >
+                <i class="ri-twitter-fill"></i>
+              </div>
+              <div
+                class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 cursor-pointer"
+              >
+                <i class="ri-instagram-fill"></i>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-4">Products</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Neckbands</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Wireless Earbuds</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Sports Earphones</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Gaming Headsets</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-4">Support</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Warranty</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Returns</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-4">Newsletter</h3>
+            <p class="text-gray-400 mb-4">
+              Subscribe to get updates on new products and exclusive offers.
+            </p>
+            <div class="flex">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                class="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-l text-sm outline-none focus:border-primary"
+              />
+              <button
+                class="px-4 py-2 bg-primary text-white rounded-r hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 KavyaKart. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuBtn = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+      const uid = localStorage.getItem("uid");
+
+// If uid is missing, redirect to login page
+if (!uid) {
+  document.body.innerHTML = `
+   <header
+      class="fixed top-0 left-0 bg-blue-500 right-0 bg-primary z-50 h-20 will-change-transform"
+      style="backface-visibility: hidden; transform-style: preserve-3d"
+    >
+      <div class="flex items-center justify-between px-4 h-full">
+        <!-- Logo with Text -->
+        <!-- Logo with Text -->
+        <div class="flex items-center space-x-2 w-auto  cursor-pointer" onclick="window.location.href='index.html'">
+  <img class="w-10 h-10 object-contain" src="./image/logo.png" alt="KavyaKart Logo">
+  <h6 class="text-white text-xs sm:text-sm font-['Dancing_Script'] leading-tight">KavyaKart</h6>
+</div>
+
+        <!-- Search Box -->
+        <div class="hidden md:block flex-1 max-w-lg mx-4">
+          <div class="relative">
+            <input
+              type="text"
+              placeholder="Search..."
+              class="w-full px-4 py-2 pr-12 rounded text-sm border-none outline-none"
+              id="searchInput"
+            />
+            <button
+              class="absolute right-0 top-0 h-full px-4 bg-orange-400 rounded-r hover:bg-orange-500"
+            >
+              <i class="ri-search-line text-white"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-6 text-white">
+          <button
+            id="accountBtn"
+            class="flex items-center space-x-1 hover:text-gray-200"
+            onclick="window.location.href='account.html'"
+          >
+            <i class="ri-user-line"></i>
+            <span class="text-sm">Account</span>
+          </button>
+          <button
+            id="accountBtn"
+            class="flex items-center space-x-1 hover:text-gray-200"
+            onclick="window.location.href='order.html'"
+          >
+            <i class="ri-user-line"></i>
+            <span class="text-sm">Order</span>
+          </button>
+
+          <button
+            class="flex items-center space-x-1 hover:text-gray-200 relative"
+            onclick="window.location.href='cart.html'"
+          >
+            <i class="ri-shopping-cart-line"></i>
+            <span class="text-sm">Cart</span>
+            <span
+              class="absolute -top-2 -right-2 bg-orange-500 text-xs rounded-full w-5 h-5 flex items-center justify-center"
+              >3</span
+            >
+          </button>
+        </div>
+
+        <!-- Mobile Menu Icon -->
+        <div class="md:hidden">
+          <button id="menuToggle" class="text-white text-2xl">
+            <i class="ri-menu-line"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobileMenu"
+        class="md:hidden hidden bg-white text-black shadow-lg p-4 absolute top-16 right-4 w-48 rounded z-50"
+      >
+        <a href="account.html" class="block py-2 hover:text-primary border-b">Account</a>
+        <a href="cart.html" class="block py-2 hover:text-primary border-b">Cart</a>
+        <a href="order.html" class="block py-2 hover:text-primary">Orders</a>
+      </div>
+    </header>
+
+    <div class="min-h-screen flex items-center justify-center bg-gray-100 text-center p-6">
+      <div>
+        <h2 class="text-2xl font-bold text-red-600 mb-4">⚠️ Please Login First</h2>
+        <p class="text-gray-700 mb-4">You need to be logged in to access this page.</p>
+        <a href="login.html" class="inline-block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">🔐 Go to Login</a>
+      </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-12 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="text-white font-['Pacifico'] text-xl mb-4">
+              <img class="w-16" src="./image/logo.png" alt="" />
+            </div>
+            <p class="text-gray-400 mb-4">
+              Premium audio solutions for every lifestyle. Experience the future
+              of sound with our innovative products.
+            </p>
+            <div class="flex space-x-4">
+              <div
+                class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 cursor-pointer"
+              >
+                <i class="ri-facebook-fill"></i>
+              </div>
+              <div
+                class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 cursor-pointer"
+              >
+                <i class="ri-twitter-fill"></i>
+              </div>
+              <div
+                class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 cursor-pointer"
+              >
+                <i class="ri-instagram-fill"></i>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-4">Products</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Neckbands</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Wireless Earbuds</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Sports Earphones</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Gaming Headsets</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-4">Support</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Warranty</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Returns</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-semibold mb-4">Newsletter</h3>
+            <p class="text-gray-400 mb-4">
+              Subscribe to get updates on new products and exclusive offers.
+            </p>
+            <div class="flex">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                class="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-l text-sm outline-none focus:border-primary"
+              />
+              <button
+                class="px-4 py-2 bg-primary text-white rounded-r hover:bg-blue-700 transition-colors !rounded-button whitespace-nowrap"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
+        >
+          <p>&copy; 2025 KavyaKart. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  `;
+} else {
+  fetchUser(); // call this only if logged in
+}
+
+
+      async function fetchUser() {
+        try {
+          const res = await fetch(
+            `/api/user-details?uid=${uid}`
+          );
+          const data = await res.json();
+          const user = data.user;
+
+          document.getElementById("name").innerText =
+            user.address?.name || "N/A";
+          document.getElementById("email").innerText = user.email || "N/A";
+          document.getElementById("phone").innerText =
+            user.address?.phone || "N/A";
+          document.getElementById("street").innerText =
+            user.address?.street || "";
+          document.getElementById("city").innerText = user.address?.city || "";
+          document.getElementById("state").innerText =
+            user.address?.state || "";
+          document.getElementById("postalCode").innerText =
+            user.address?.postalCode || "";
+          document.getElementById("country").innerText =
+            user.address?.country || "";
+
+          // Pre-fill inputs if address already exists
+          if (user.address) {
+            document.getElementById("nameInput").value =
+              user.address.name || "";
+            document.getElementById("phoneInput").value =
+              user.address.phone || "";
+            document.getElementById("streetInput").value =
+              user.address.street || "";
+            document.getElementById("cityInput").value =
+              user.address.city || "";
+            document.getElementById("stateInput").value =
+              user.address.state || "";
+            document.getElementById("postalCodeInput").value =
+              user.address.postalCode || "";
+            document.getElementById("countryInput").value =
+              user.address.country || "";
+          }
+        } catch (err) {
+          console.error("Error fetching user:", err);
+        }
+      }
+
+      function openAddressForm() {
+        document.getElementById("addressForm").classList.remove("hidden");
+      }
+
+      function closeAddressForm() {
+        document.getElementById("addressForm").classList.add("hidden");
+      }
+
+      async function saveAddress() {
+        const address = {
+          name: document.getElementById("nameInput").value,
+          phone: document.getElementById("phoneInput").value,
+          street: document.getElementById("streetInput").value,
+          city: document.getElementById("cityInput").value,
+          state: document.getElementById("stateInput").value,
+          postalCode: document.getElementById("postalCodeInput").value,
+          country: document.getElementById("countryInput").value,
+        };
+
+        try {
+          await fetch("/api/update-address", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ uid, address }),
+          });
+
+          closeAddressForm();
+          fetchUser();
+        } catch (err) {
+          console.error("Failed to save address", err);
+        }
+      }
+
+      fetchUser();
+
+      function logout() {
+  localStorage.removeItem("uid");
+  
+  window.location.href = "index.html"; // ya login page
+}
+
+    </script>
+  </body>
+</html>
