@@ -234,14 +234,22 @@
     }
 
      document.addEventListener("DOMContentLoaded", () => {
-    const buyNowBtn = document.querySelectorAll("button.bg-primary")[1]; // 2nd button = Buy Now
-    const product = JSON.parse(localStorage.getItem("selectedProduct"));
+  const buyNowBtn = document.querySelectorAll("button.bg-primary")[1]; // 2nd button = Buy Now
+  
+  // STEP 1: Get product details (example - update this as per your logic)
+  const product = {
+    name: document.querySelector(".product-name").innerText,
+    price: document.querySelector(".product-price").innerText,
+    image: document.querySelector(".product-image").src
+    // Add other fields if needed
+  };
 
-    buyNowBtn.addEventListener("click", () => {
-      localStorage.setItem("buyNowProduct", JSON.stringify(product));
-      window.location.href = "cart-detail.html";
-    });
+  // STEP 2: Buy Now click
+  buyNowBtn.addEventListener("click", () => {
+    localStorage.setItem("buyNowProduct", JSON.stringify(product));
+    window.location.href = "cart-detail.html";
   });
+});
   </script>
 
   <script>
