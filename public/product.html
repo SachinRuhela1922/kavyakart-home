@@ -158,9 +158,9 @@
     const product = JSON.parse(localStorage.getItem("selectedProduct"));
 
     if (!product) {
-      document.getElementById('productDetail').innerHTML = "<p class='text-center text-xl text-red-500'>No product found.</p>";
-    } else {
-      document.getElementById('productDetail').innerHTML = `
+  document.getElementById('productDetail').innerHTML = "<p class='text-center text-xl text-red-500'>No product found.</p>";
+} else {
+  document.getElementById('productDetail').innerHTML = `
         <nav class="text-sm text-gray-500 mb-6 max-w-screen-xl mx-auto">
           <a href="index.html" class="hover:underline text-primary">Home</a> / 
           <a href="#" class="hover:underline text-primary">Audio Devices</a> / 
