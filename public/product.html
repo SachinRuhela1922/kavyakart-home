@@ -146,190 +146,121 @@
     </div>
   </footer>
 
+<script>
 
-  <script>
 
-    const menuBtn = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-    const product = JSON.parse(localStorage.getItem("selectedProduct"));
-
-    if (!product) {
-      document.getElementById('productDetail').innerHTML = "<p class='text-center text-xl text-red-500'>No product found.</p>";
-    } else {
-      document.getElementById('productDetail').innerHTML = `
-        <nav class="text-sm text-gray-500 mb-6 max-w-screen-xl mx-auto">
-          <a href="index.html" class="hover:underline text-primary">Home</a> / 
-          <a href="#" class="hover:underline text-primary">Audio Devices</a> / 
-          <span class="text-gray-600">${product.title}</span>
-        </nav>
-
-        <div class="bg-white rounded-lg shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 lg:p-12 max-w-screen-xl mx-auto w-full">
-          
-          <!-- Product Image -->
-          <div class="bg-gray-50 rounded-md flex items-center justify-center">
-            <img src="${product.image}" alt="${product.title}" class="w-full object-contain rounded" />
-          </div>
-
-          <!-- Product Details -->
-          <div class="space-y-4 w-full">
-            <h1 class="text-3xl lg:text-4xl font-bold leading-snug">${product.title}</h1>
-
-            <div class="flex items-center space-x-3">
-              <div class="flex text-yellow-400 text-lg">
-                ${[...Array(5)].map((_, i) => {
-                  if (i < Math.floor(product.rating)) return '<i class="ri-star-fill"></i>';
-                  else if (product.rating % 1 >= 0.5 && i === Math.floor(product.rating)) return '<i class="ri-star-half-fill"></i>';
-                  else return '<i class="ri-star-line"></i>';
-                }).join('')}
-              </div>
-              <span class="text-sm text-gray-600">${product.reviews} reviews</span>
-            </div>
-
-            <div class="pt-2">
-              <div class="text-4xl font-extrabold text-gray-900">$${product.price}
-                ${product.original ? `<span class="ml-4 text-lg text-gray-500 line-through">$${product.original}</span>` : ''}
-              </div>
-              ${product.discount ? `<div class="text-green-600 text-sm font-medium mt-1">${product.discount}</div>` : ''}
-            </div>
-            <div class="flex flex-col lg:flex-row gap-4 mt-6 w-full">
-              <button class="flex-1 bg-primary bg-blue-700 text-white py-3 px-6 rounded hover:bg-blue-300 transition text-center">Add to Cart</button>
-              <button class="flex-1 bg-primary bg-blue-700 text-white py-3 px-6 rounded hover:bg-blue-300 transition text-center">Buy Now</button>
-
-              
-            </div>
-
-            <p class="text-gray-700 text-base leading-relaxed mt-4">
-              Elevate your audio experience with premium sound clarity, extended battery life, and a comfortable fit — built for music lovers and professionals alike.
-            </p>
-
-            <ul class="list-disc pl-6 text-gray-700 text-sm space-y-1 mt-4">
-              <li>Bluetooth 5.3 | Noise Isolation</li>
-              <li>30+ Hours of Battery Life</li>
-              <li>IPX5 Water & Sweat Resistant</li>
-              <li>Hi-Fi Sound with Deep Bass</li>
-              <li>Quick Charge (10min = 4hr play)</li>
-            </ul>
-
-            <div class="flex items-center space-x-4 mt-6">
-              <label class="text-sm font-medium">Qty:</label>
-              <select class="border rounded px-3 py-1 text-sm focus:outline-primary">
-                <option>1</option><option>2</option><option>3</option>
-              </select>
-            </div>
-
-            
-
-            <div class="text-sm text-gray-600 mt-6 space-y-2">
-              <div class="flex items-center gap-2"><i class="ri-truck-line text-lg text-primary"></i> Free Delivery in 3-5 Days</div>
-              <div class="flex items-center gap-2"><i class="ri-refresh-line text-lg text-primary"></i> 7-Day Easy Replacement</div>
-              <div class="flex items-center gap-2"><i class="ri-shield-check-line text-lg text-primary"></i> 1-Year Warranty</div>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-
-     document.addEventListener("DOMContentLoaded", () => {
-  const buyNowBtn = document.querySelectorAll("button.bg-primary")[1]; // 2nd button = Buy Now
-  
-  // STEP 1: Get product details (example - update this as per your logic)
-  const product = {
-    name: document.querySelector(".product-name").innerText,
-    price: document.querySelector(".product-price").innerText,
-    image: document.querySelector(".product-image").src
-    // Add other fields if needed
-  };
-
-  // STEP 2: Buy Now click
-  buyNowBtn.addEventListener("click", () => {
-    localStorage.setItem("buyNowProduct", JSON.stringify(product));
-    window.location.href = "cart-detail.html";
-  });
+  <// Mobile menu toggle
+const menuBtn = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
 });
-  </script>
 
-  <script>
-  const uid = localStorage.getItem("uid");
-  const product = JSON.parse(localStorage.getItem("selectedProduct"));
+// Product detail rendering
+const uid = localStorage.getItem('uid');
+const product = JSON.parse(localStorage.getItem('selectedProduct'));
+const productDetailDiv = document.getElementById('productDetail');
 
-  const productDetailDiv = document.getElementById('productDetail');
-
-  if (!product) {
-    productDetailDiv.innerHTML = "<p class='text-center text-xl text-red-500'>No product found.</p>";
-  } else {
-    productDetailDiv.innerHTML = `
-      <div class="bg-white rounded-lg shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 lg:p-12 max-w-screen-xl mx-auto w-full">
-        <div class="bg-gray-50 rounded-md flex items-center justify-center">
-          <img class="w-full object-contain rounded product-image" src="${product.image}" />
+if (!product) {
+  productDetailDiv.innerHTML = "<p class='text-center text-xl text-red-500'>No product found.</p>";
+} else {
+  productDetailDiv.innerHTML = `
+    <nav class="text-sm text-gray-500 mb-6 max-w-screen-xl mx-auto">
+      <a href="index.html" class="hover:underline text-blue-500">Home</a> / 
+      <a href="#" class="hover:underline text-blue-500">Audio Devices</a> / 
+      <span class="text-gray-600">${product.title}</span>
+    </nav>
+    <div class="bg-white rounded-lg shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 lg:p-12 max-w-screen-xl mx-auto w-full">
+      <div class="bg-gray-50 rounded-md flex items-center justify-center">
+        <img src="${product.image}" alt="${product.title}" class="w-full object-contain rounded product-image" />
+      </div>
+      <div class="space-y-4 w-full">
+        <h1 class="text-3xl lg:text-4xl font-bold leading-snug product-name">${product.title}</h1>
+        <div class="flex items-center space-x-3">
+          <div class="flex text-yellow-400 text-lg">
+            ${[...Array(5)].map((_, i) => {
+              if (i < Math.floor(product.rating)) return '<i class="ri-star-fill"></i>';
+              if (product.rating % 1 >= 0.5 && i === Math.floor(product.rating)) return '<i class="ri-star-half-fill"></i>';
+              return '<i class="ri-star-line"></i>';
+            }).join('')}
+          </div>
+          <span class="text-sm text-gray-600">${product.reviews || 0} reviews</span>
         </div>
-        <div class="space-y-4 w-full">
-          <h1 class="text-3xl lg:text-4xl font-bold leading-snug product-name">${product.title}</h1>
-
-          <div class="pt-2">
-            <div class="text-4xl font-extrabold text-gray-900 product-price">$${product.price}</div>
-          </div>
-
-          <div class="flex flex-col lg:flex-row gap-4 mt-6 w-full">
-            <button id="addToCartBtn" class="flex-1 bg-primary bg-blue-700 text-white py-3 px-6 rounded hover:bg-blue-300 transition text-center">Add to Cart</button>
-            <button id="buyNowBtn" class="flex-1 bg-primary bg-blue-700 text-white py-3 px-6 rounded hover:bg-blue-300 transition text-center">Buy Now</button>
-          </div>
-
-          <div class="flex items-center space-x-4 mt-6">
-            <label class="text-sm font-medium">Qty:</label>
-            <select id="qtySelect" class="border rounded px-3 py-1 text-sm focus:outline-primary">
-              <option>1</option><option>2</option><option>3</option>
-            </select>
-          </div>
+        <div class="pt-2">
+          <div class="text-4xl font-extrabold text-gray-900 product-price">$${product.price}</div>
+          ${product.original ? `<span class="ml-4 text-lg text-gray-500 line-through">$${product.original}</span>` : ''}
+          ${product.discount ? `<div class="text-green-600 text-sm font-medium mt-1">${product.discount}</div>` : ''}
+        </div>
+        <div class="flex flex-col lg:flex-row gap-4 mt-6 w-full">
+          <button id="addToCartBtn" class="flex-1 bg-blue-700 text-white py-3 px-6 rounded hover:bg-blue-800 transition text-center">Add to Cart</button>
+          <button id="buyNowBtn" class="flex-1 bg-blue-700 text-white py-3 px-6 rounded hover:bg-blue-800 transition text-center">Buy Now</button>
+        </div>
+        <p class="text-gray-700 text-base leading-relaxed mt-4">
+          Elevate your audio experience with premium sound clarity, extended battery life, and a comfortable fit — built for music lovers and professionals alike.
+        </p>
+        <ul class="list-disc pl-6 text-gray-700 text-sm space-y-1 mt-4">
+          <li>Bluetooth 5.3 | Noise Isolation</li>
+          <li>30+ Hours of Battery Life</li>
+          <li>IPX5 Water & Sweat Resistant</li>
+          <li>Hi-Fi Sound with Deep Bass</li>
+          <li>Quick Charge (10min = 4hr play)</li>
+        </ul>
+        <div class="flex items-center space-x-4 mt-6">
+          <label class="text-sm font-medium">Qty:</label>
+          <select id="qtySelect" class="border rounded px-3 py-1 text-sm focus:outline-blue-500">
+            <option>1</option><option>2</option><option>3</option>
+          </select>
+        </div>
+        <div class="text-sm text-gray-600 mt-6 space-y-2">
+          <div class="flex items-center gap-2"><i class="ri-truck-line text-lg text-blue-500"></i> Free Delivery in 3-5 Days</div>
+          <div class="flex items-center gap-2"><i class="ri-refresh-line text-lg text-blue-500"></i> 7-Day Easy Replacement</div>
+          <div class="flex items-center gap-2"><i class="ri-shield-check-line text-lg text-blue-500"></i> 1-Year Warranty</div>
         </div>
       </div>
-    `;
+    </div>
+  `;
 
-    // 🛒 Add to Cart Handler
-    document.getElementById("addToCartBtn").addEventListener("click", async () => {
-      const quantity = parseInt(document.getElementById("qtySelect").value);
-      const payload = {
-        uid,
-        product: {
-          ...product,
-          quantity
-        }
-      };
+  // Add to Cart Handler
+  document.getElementById('addToCartBtn').addEventListener('click', async () => {
+    const quantity = parseInt(document.getElementById('qtySelect').value);
+    const payload = { uid, product: { ...product, quantity } };
 
-      const res = await fetch("/api/add-to-cart", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
+    try {
+      const res = await fetch('/api/add-to-cart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
 
-      const data = await res.json();
-      const btn = document.getElementById("addToCartBtn");
-
+      const btn = document.getElementById('addToCartBtn');
       if (res.ok) {
-        btn.textContent = "Go to Cart";
-        btn.classList.add("bg-green-600", "hover:bg-green-700");
-        btn.onclick = () => window.location.href = "cart.html";
+        btn.textContent = 'Go to Cart';
+        btn.classList.remove('bg-blue-700', 'hover:bg-blue-800');
+        btn.classList.add('bg-green-600', 'hover:bg-green-700');
+        btn.onclick = () => window.location.href = 'cart.html';
       } else {
-        btn.textContent = "Try Again";
-        btn.classList.add("bg-red-600", "hover:bg-red-700");
+        btn.textContent = 'Try Again';
+        btn.classList.remove('bg-blue-700', 'hover:bg-blue-800');
+        btn.classList.add('bg-red-600', 'hover:bg-red-700');
       }
-    });
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+      const btn = document.getElementById('addToCartBtn');
+      btn.textContent = 'Try Again';
+      btn.classList.remove('bg-blue-700', 'hover:bg-blue-800');
+      btn.classList.add('bg-red-600', 'hover:bg-red-700');
+    }
+  });
 
-    // 🟢 Buy Now Handler
-    document.getElementById("buyNowBtn").addEventListener("click", () => {
-      const quantity = parseInt(document.getElementById("qtySelect").value);
-      const buyProduct = { ...product, quantity };
-      localStorage.setItem("buyNowProduct", JSON.stringify(buyProduct));
-      window.location.href = "cart-detail.html";
-    });
-  }
-</script>
-
+  // Buy Now Handler
+  document.getElementById('buyNowBtn').addEventListener('click', () => {
+    const quantity = parseInt(document.getElementById('qtySelect').value);
+    const buyProduct = { ...product, quantity };
+    localStorage.setItem('buyNowProduct', JSON.stringify(buyProduct));
+    window.location.href = 'cart-detail.html';
+  });
+}
+<script/>
 
 </body>
 </html>
