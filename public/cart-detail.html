@@ -124,28 +124,33 @@
   </div>
 
   <!-- Address Modal -->
-  <div id="addressModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
-    <div class="bg-white p-6 rounded-xl shadow-md max-w-md w-full relative space-y-4">
-      <h2 class="text-xl font-semibold text-gray-800">📦 Shipping Address</h2>
-      <button id="closeModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">&times;</button>
-      <div class="space-y-3">
-        <input type="text" placeholder="Full Name" class="w-full border px-4 py-2 rounded address" />
-        <input type="text" placeholder="Phone Number" class="w-full border px-4 py-2 rounded address" />
-        <input type="text" placeholder="Street Address" class="w-full border px-4 py-2 rounded address" />
-        <input type="text" placeholder="City" class="w-full border px-4 py-2 rounded address" />
-        <input type="text" placeholder="State" class="w-full border px-4 py-2 rounded address" />
-        <input type="text" placeholder="Postal Code" class="w-full border px-4 py-2 rounded address" />
-        <input type="text" placeholder="Country" class="w-full border px-4 py-2 rounded address" />
-      </div>
-      <button id="placeOrder" class="w-full mt-4 bg-green-600 text-white py-2 rounded hover:bg-green-700 flex items-center justify-center gap-2">
-        <span id="placeOrderText">Confirm Order</span>
-        <svg id="loaderIcon" class="w-5 h-5 animate-spin hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-        </svg>
-      </button>
+ <div id="addressModal" class="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+  <div class="bg-white p-6 rounded-xl shadow-lg w-full h-full md:w-[100%] md:h-[100%] overflow-y-auto rounded-none md:rounded-xl relative">
+    
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">📦 Shipping Address</h2>
+    <button id="closeModal" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-4xl font-bold">&times;</button>
+    
+    <div class="space-y-4">
+      <input type="text" placeholder="Full Name" class="w-full h-12 border px-4 rounded-lg address" />
+      <input type="text" placeholder="Phone Number" class="w-full h-12 border px-4 rounded-lg address" />
+      <input type="text" placeholder="Street Address" class="w-full h-12 border px-4 rounded-lg address" />
+      <input type="text" placeholder="City" class="w-full h-12 border px-4 rounded-lg address" />
+      <input type="text" placeholder="State" class="w-full h-12 border px-4 rounded-lg address" />
+      <input type="text" placeholder="Postal Code" class="w-full h-12 border px-4 rounded-lg address" />
+      <input type="text" placeholder="Country" class="w-full h-12 border px-4 rounded-lg address" />
     </div>
+
+    <button id="placeOrder" class="w-full mt-6 bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 flex items-center justify-center gap-2 text-lg">
+      <span id="placeOrderText">Confirm Order</span>
+      <svg id="loaderIcon" class="w-5 h-5 animate-spin hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+      </svg>
+    </button>
+    
   </div>
+</div>
+
 
       <footer class="bg-gray-900 text-white py-12 px-4">
       <div class="max-w-7xl mx-auto">
@@ -378,7 +383,10 @@ async function submitOrder(address, paymentMode, screenshot) {
   placeOrderBtn.disabled = false;
   placeOrderText.textContent = "Confirm Order";
   loaderIcon.classList.add("hidden");
+
 }
+
+
 </script>
 
 </body>
