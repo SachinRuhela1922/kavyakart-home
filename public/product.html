@@ -371,10 +371,20 @@
       });
 
       // 💳 Buy Now
-      buyNowBtn.addEventListener("click", () => {
-        localStorage.setItem("buyNowProduct", JSON.stringify(product));
-        window.location.href = "cart-detail.html";
-      });
+      // 💳 Buy Now
+buyNowBtn.addEventListener("click", () => {
+  const quantity = parseInt(quantitySelect.value);
+
+  const cartProduct = {
+    ...product,
+    quantity,
+  };
+
+  localStorage.setItem("buyNowProduct", JSON.stringify(product));
+  localStorage.setItem("cart-detail-product", JSON.stringify(cartProduct)); // 🔁 This updates cart-detail-product
+  window.location.href = "cart-detail.html";
+});
+
     </script>
 
     <script>
